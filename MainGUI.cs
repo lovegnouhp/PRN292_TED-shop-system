@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace PRN292_Project
 {
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class MainGUI : Form
+	{
+		public MainGUI()
+		{
+			InitializeComponent();
+		}
+	}
 }
