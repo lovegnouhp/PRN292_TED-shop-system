@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
+
 
 namespace PRN292_Project.DAL
 {
@@ -22,7 +22,7 @@ namespace PRN292_Project.DAL
                 {
                     var productType = new ProductType
                     {
-                        TypeID = row["TypeID"].ToString(),
+                        TypeID = row["ProductTypeID"].ToString(),
                         Name = row["Type_name"].ToString()
                     };
                     productTypes.Add(productType);
@@ -38,7 +38,7 @@ namespace PRN292_Project.DAL
         }
         public static DataTable getDataTable()
         {
-            string sql = "SELECT [TypeID],[Type_name] " +
+            string sql = "SELECT [ProductTypeID],[Type_name] " +
                 "FROM [ProductType]";
             return DAO.GetDataTable(sql);
         }
@@ -53,38 +53,38 @@ namespace PRN292_Project.DAL
 
         public static bool update(ProductType t)
         {
-            SqlCommand cmd = new SqlCommand("UPDATE [dbo].[ProductType] SET [Type_name] = @Type_name WHERE [TypeID] = @TypeID");
+            SqlCommand cmd = new SqlCommand("UPDATE [dbo].[ProductType] SET [Type_name] = @Type_name WHERE [ProductTypeID] = @ProductTypeID");
             cmd.Parameters.AddWithValue("@Type_name", t.Name);
-            cmd.Parameters.AddWithValue("@TypeID", t.TypeID);
+            cmd.Parameters.AddWithValue("@ProductTypeID", t.TypeID);
             return DAO.UpdateTable(cmd);
 
         }
 
         public static bool delete(string id)
         {
-            SqlCommand cmd = new SqlCommand("DELETE FROM [ProductType] WHERE [TypeID] = @TypeID");
-            cmd.Parameters.AddWithValue("@TypeID", id);
+            SqlCommand cmd = new SqlCommand("DELETE FROM [ProductType] WHERE [ProductTypeID] = @ProductTypeID");
+            cmd.Parameters.AddWithValue("@ProductTypeID", id);
             return DAO.UpdateTable(cmd);
 
         }
 
-        public static ProductType getTypeByID(int id)
+        public static ProductType getTypeByID(string id)
         {
             ProductType type = null;
             try
             {
-                SqlCommand cmd = new SqlCommand("SELECT [TypeID],[Type_name] " +
+                SqlCommand cmd = new SqlCommand("SELECT [ProductTypeID],[Type_name] " +
                 "FROM [ProductType] " +
-                "WHERE [TypeID] = @TypeID");
-                cmd.Parameters.AddWithValue("@TypeID", id);
+                "WHERE [ProductTypeID] = @ProductTypeID");
+                cmd.Parameters.AddWithValue("@ProductTypeID", id);
                 DataTable dt = DAO.GetDataTable(cmd);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];
                     type = new ProductType
                     {
-                        TypeID = row["Type_name"].ToString(),
-                        Name = row["Name"].ToString()
+                        TypeID = row["ProductTypeID"].ToString(),
+                        Name = row["Type_name"].ToString()
                     };
 
                 }

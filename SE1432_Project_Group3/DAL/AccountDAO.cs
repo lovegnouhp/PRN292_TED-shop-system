@@ -22,8 +22,8 @@ namespace PRN292_Project.DAL
                     var Account = new Account
                     {
                         Username = row["TypeID"].ToString(),
-                        Password = row["TypeID"].ToString(),
-                        Role = row["TypeID"].ToString()
+                        Password = row["Password"].ToString(),
+                        Role = row["Role"].ToString()
                     };
                     Accounts.Add(Account);
                 }

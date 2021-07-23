@@ -1,4 +1,4 @@
-﻿using PRN292_Project.Model;
+﻿using PRN292_Project.DTL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,8 +21,8 @@ namespace PRN292_Project.DAL
                 {
                     var product = new Product
                     {
-                        ProductID = int.Parse(row["ProductID"].ToString()),
-                        TypeID = int.Parse(row["TypeID"].ToString()),
+                        ProductID = row["ProductID"].ToString(),
+                        TypeID = row["TypeID"].ToString(),
                         Produce_country = row["Produce_country"].ToString(),
                         Name = row["Name"].ToString(),
                         Description = row["Description"].ToString(),
@@ -49,7 +49,7 @@ namespace PRN292_Project.DAL
             return DAO.GetDataTable(sql);
         }
 
-        public static DataTable getProductByTypeID(int typeID)
+        public static DataTable getProductByTypeID(string typeID)
         {
             SqlCommand cmd = new SqlCommand("SELECT [ProductID],[TypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity] " +
                 "FROM [Product] " +
@@ -92,7 +92,7 @@ namespace PRN292_Project.DAL
 
         }
 
-        public static bool delete(int id)
+        public static bool delete(string id)
         {
             SqlCommand cmd = new SqlCommand("DELETE FROM [Product] WHERE [ProductID]=@ProductID");
             cmd.Parameters.AddWithValue("@ProductID", id);
@@ -100,7 +100,7 @@ namespace PRN292_Project.DAL
 
         }
 
-        public static Product getProductByID(int id)
+        public static Product getProductByID(string id)
         {
             Product product = null;
             try
@@ -115,8 +115,8 @@ namespace PRN292_Project.DAL
                     DataRow row = dt.Rows[0];
                     product = new Product
                     {
-                        ProductID = int.Parse(row["ProductID"].ToString()),
-                        TypeID = int.Parse(row["TypeID"].ToString()),
+                        ProductID = row["ProductID"].ToString(),
+                        TypeID = row["TypeID"].ToString(),
                         Produce_country = row["Produce_country"].ToString(),
                         Name = row["Name"].ToString(),
                         Description = row["Description"].ToString(),
