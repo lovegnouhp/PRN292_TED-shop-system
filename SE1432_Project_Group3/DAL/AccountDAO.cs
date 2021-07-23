@@ -23,7 +23,8 @@ namespace PRN292_Project.DAL
                     {
                         Username = row["TypeID"].ToString(),
                         Password = row["Password"].ToString(),
-                        Role = row["Role"].ToString()
+                        Role = row["Role"].ToString(),
+                        AccountID = row["AccountID"].ToString()
                     };
                     Accounts.Add(Account);
                 }
@@ -39,21 +40,22 @@ namespace PRN292_Project.DAL
 
         public static DataTable getDataTable()
         {
-            string sql = "SELECT [Username],[Password],[Role] FROM [Account]";
+            string sql = "SELECT [Username],[Password],[Role],[AccountID] FROM [Account]";
             return DAO.GetDataTable(sql);
         }
 
         public static bool insert(Account a)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [Account] ([Username],[Password],[Role]) " +
-                "VALUES (@username, @password, @role)");
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Account] ([Username],[Password],[Role],[AccountID] ) " +
+                "VALUES (@username, @password, @role, @accountID)");
             cmd.Parameters.AddWithValue("@username", a.Username);
             cmd.Parameters.AddWithValue("@password", a.Password);
             cmd.Parameters.AddWithValue("@role", a.Role);
+            cmd.Parameters.AddWithValue("@accountID", a.AccountID);
             return DAO.UpdateTable(cmd);
         }
 
-        public static bool update(Account a)
+        /*public static bool update(Account a)
         {
             SqlCommand cmd = new SqlCommand("UPDATE [Account] " +
                 "SET [Password] = @password ,[Role] = @role " +
@@ -69,6 +71,6 @@ namespace PRN292_Project.DAL
             SqlCommand cmd = new SqlCommand("DELETE FROM [Account] WHERE [Username] = @username");
             cmd.Parameters.AddWithValue("@username", username);
             return DAO.UpdateTable(cmd);
-        }
+        }*/
     }
 }

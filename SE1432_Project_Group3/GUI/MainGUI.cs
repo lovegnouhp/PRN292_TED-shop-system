@@ -10,24 +10,26 @@ using System.Windows.Forms;
 
 namespace PRN292_Project
 {
-	public partial class MainGUI : Form
-	{
+    public partial class MainGUI : Form
+    {
         public MainGUI()
         {
             InitializeComponent();
-            Account.Username = "admin";
-            Account.Role = "manager";
+            Variables.Username = "admin";
+            Variables.Role = "manager";
             loadMenuStrip();
         }
 
         public void loadMenuStrip()
         {
-            if (Account.Role == "manager")
+            if (Variables.Role == "manager")
             {
                 productToolStripMenuItem.Visible = true;
                 productTypeToolStripMenuItem.Visible = true;
                 staffsToolStripMenuItem.Visible = true;
                 reportToolStripMenuItem.Visible = true;
+                storeToolStripMenuItem.Visible = false;
+                cartToolStripMenuItem.Visible = false;
             }
             else
             {
@@ -35,35 +37,34 @@ namespace PRN292_Project
                 productTypeToolStripMenuItem.Visible = false;
                 staffsToolStripMenuItem.Visible = false;
                 reportToolStripMenuItem.Visible = false;
-                storeToolStripMenuItem.Visible = false;
-                cartToolStripMenuItem.Visible = false;
             }
 
-            if (Account.Role == "staff")
+            if (Variables.Role == "staff")
             {
                 importToolStripMenuItem.Visible = true;
                 deliveryToolStripMenuItem.Visible = true;
+                storeToolStripMenuItem.Visible = false;
+                cartToolStripMenuItem.Visible = false;
             }
             else
             {
                 importToolStripMenuItem.Visible = false;
                 deliveryToolStripMenuItem.Visible = false;
-                storeToolStripMenuItem.Visible = false;
-                cartToolStripMenuItem.Visible = false;
+                
             }
 
-            if (Account.Username != null) // already login: show Logout button
+            if (Variables.Username != null) // already login: show Logout button
             {
-                loginToolStripMenuItem.Text = "Logout (" + Account.Username + ")";
+                loginToolStripMenuItem.Text = "Logout (" + Variables.Username + ")";
             }
             else // not login yet: show Login button
             {
                 loginToolStripMenuItem.Text = "Login";
             }
-            cartToolStripMenuItem.Text = "Cart (" + ShoppingCartDAO.GetCart().GetCount() + ")";
+            cartToolStripMenuItem.Text = "Cart (" + /*ShoppingCartDAO.GetCart().GetCount()*/ 0 + ")";
         }
 
-        private void storeToolStripMenuItem_Click(object sender, EventArgs e)
+       /* private void storeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Embed(panel1, new StoreGUI());
         }
@@ -128,12 +129,11 @@ namespace PRN292_Project
                     loadMenuStrip();
                 }
             }
-        }
+        }*/
 
         private void MainGUI_Activated(object sender, EventArgs e)
         {
             loadMenuStrip();
         }
     }
-}
 }

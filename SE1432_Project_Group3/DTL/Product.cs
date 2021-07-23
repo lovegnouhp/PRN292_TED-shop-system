@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PRN292_Project.DTL
 {
-	class Product
+	public class Product
 	{
 		private string productID;
 		private string typeID;

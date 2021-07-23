@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PRN292_Project.DTL
 {
-    class ImportDetail
+    public class ImportDetail
     {
         private string importID;
         private int importLine;

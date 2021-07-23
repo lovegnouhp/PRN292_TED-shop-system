@@ -39,7 +39,7 @@ namespace PRN292_Project.DAL
         }
         public static DataTable getDataTable()
         {
-            string sql = "SELECT [StaffID],[Name],[Address],[Phone],[BankAccount]FROM [Staff]";
+            string sql = "SELECT [StaffID],[Name],[Address],[Phone],[BankAccount] FROM [Staff]";
             return DAO.GetDataTable(sql);
         }
 

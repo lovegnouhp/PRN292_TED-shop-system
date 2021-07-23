@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\ImportDAO.cs" />
+    <Compile Include="DAL\OrderDAO.cs" />
+    <Compile Include="DTL\Account.cs" />
     <Compile Include="GUI\CartGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,7 +81,7 @@
     <Compile Include="GUI\MainGUI.Designer.cs">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="DTL\Account.cs" />
+    <Compile Include="DTL\Variables.cs" />
     <Compile Include="DTL\Customer.cs" />
     <Compile Include="DTL\Import.cs" />
     <Compile Include="DTL\Order.cs" />
@@ -104,6 +107,12 @@
       <DependentUpon>ProductGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Program.cs" />
+    <Compile Include="GUI\StoreGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\StoreGUI.Designer.cs">
+      <DependentUpon>StoreGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\RegisterCustomerGUI.cs">
       <SubType>Form</SubType>
@@ -155,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductGUI.resx">
       <DependentUpon>ProductGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StoreGUI.resx">
+      <DependentUpon>StoreGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

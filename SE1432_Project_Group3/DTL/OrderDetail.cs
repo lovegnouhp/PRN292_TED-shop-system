@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PRN292_Project.DTL
 {
-    class OrderDetail
+    public class OrderDetail
     {
         private string orderID;
         private int orderLine;

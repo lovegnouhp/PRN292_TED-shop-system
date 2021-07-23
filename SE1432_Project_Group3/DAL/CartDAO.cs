@@ -20,7 +20,7 @@ namespace PRN292_Project.DAL
                     var c = new Cart
                     {
                         RecordID = (int)row["recordID"],
-                        CartID = row["CartID"].ToString(),
+                        CustomerID = row["CustomerID"].ToString(),
                         ProductID = row["ProductID"].ToString(),
                         Count = (int)row["Count"],
                         DateCreated = (DateTime)row["DateCreated"]
@@ -45,7 +45,7 @@ namespace PRN292_Project.DAL
             {
                 SqlCommand cmd = new SqlCommand("INSERT INTO [Carts] VALUES(" +
                     "@CartID, @productID, @count, @dateCreated)");
-                cmd.Parameters.AddWithValue("@cartID", cart.CartID);
+                cmd.Parameters.AddWithValue("@cartID", cart.CustomerID);
                 cmd.Parameters.AddWithValue("@productID", cart.ProductID);
                 cmd.Parameters.AddWithValue("@count", cart.Count);
                 cmd.Parameters.AddWithValue("@dateCreated", cart.DateCreated);
@@ -66,7 +66,7 @@ namespace PRN292_Project.DAL
                     "albumID = @albumID, count = @count, dateCreated = @dateCreated " +
                     "WHERE recordID = @recordID");
                 cmd.Parameters.AddWithValue("@recordID", cart.RecordID);
-                cmd.Parameters.AddWithValue("@cartID", cart.CartID);
+                cmd.Parameters.AddWithValue("@cartID", cart.CustomerID);
                 cmd.Parameters.AddWithValue("@albumID", cart.ProductID);
                 cmd.Parameters.AddWithValue("@count", cart.Count);
                 cmd.Parameters.AddWithValue("@dateCreated", cart.DateCreated);
@@ -78,14 +78,14 @@ namespace PRN292_Project.DAL
 
             }
         }
-        public static void Delete(string cartID, int albumID)
+        public static void Delete(string cartID, string productID)
         {
             try
             {
                 SqlCommand cmd = new SqlCommand("DELETE FROM Carts WHERE cartID = @cartID "
                     + "AND albumID = @albumID");
                 cmd.Parameters.AddWithValue("cartID", cartID);
-                cmd.Parameters.AddWithValue("albumID", albumID);
+                cmd.Parameters.AddWithValue("albumID", productID);
                 DAO.UpdateTable(cmd);
             }
             catch (Exception ex)

@@ -48,16 +48,16 @@ namespace PRN292_Project
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loginToolStripMenuItem,
+            this.storeToolStripMenuItem,
+            this.cartToolStripMenuItem,
             this.productToolStripMenuItem,
             this.productTypeToolStripMenuItem,
             this.staffsToolStripMenuItem,
             this.reportToolStripMenuItem,
-            this.aboutToolStripMenuItem,
             this.importToolStripMenuItem,
             this.deliveryToolStripMenuItem,
-            this.storeToolStripMenuItem,
-            this.cartToolStripMenuItem});
+            this.loginToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 48);
@@ -122,10 +122,10 @@ namespace PRN292_Project
             this.storeToolStripMenuItem.Size = new System.Drawing.Size(86, 44);
             this.storeToolStripMenuItem.Text = "Store";
             // 
-            // cart0ToolStripMenuItem
+            // cartToolStripMenuItem
             // 
             this.cartToolStripMenuItem.Image = global::PRN292_Project.Properties.Resources.icons8_shopping_cart_64;
-            this.cartToolStripMenuItem.Name = "cart0ToolStripMenuItem";
+            this.cartToolStripMenuItem.Name = "cartToolStripMenuItem";
             this.cartToolStripMenuItem.Size = new System.Drawing.Size(98, 44);
             this.cartToolStripMenuItem.Text = "Cart (0)";
             // 
