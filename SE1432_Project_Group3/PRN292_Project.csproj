@@ -141,6 +141,9 @@
     <EmbeddedResource Include="LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainGUI.resx">
+      <DependentUpon>MainGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductDetailGUI.resx">
       <DependentUpon>ProductDetailGUI.cs</DependentUpon>
     </EmbeddedResource>
