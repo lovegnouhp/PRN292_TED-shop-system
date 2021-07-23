@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SE1432_Project_Group3")]
+[assembly: AssemblyTitle("PRN292_Project")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SE1432_Project_Group3")]
+[assembly: AssemblyProduct("PRN292_Project")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7ec044ea-89ab-4e56-a589-2469744f3d82")]
+[assembly: Guid("76a803f3-021f-408f-a2f0-b7a87722b55a")]
 
 // Version information for an assembly consists of the following four values:
 //

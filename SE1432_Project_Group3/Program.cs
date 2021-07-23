@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SE1432_Project_Group3
+namespace PRN292_Project
 {
     static class Program
     {
@@ -15,7 +15,7 @@ namespace SE1432_Project_Group3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new LoginGUI());
         }
     }
 }
