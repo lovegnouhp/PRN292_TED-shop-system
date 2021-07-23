@@ -41,6 +41,7 @@ namespace PRN292_Project
 			this.label3 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// btnCancel
@@ -165,11 +166,21 @@ namespace PRN292_Project
 			this.label4.TabIndex = 57;
 			this.label4.Text = "Customer phone:";
 			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(74, 340);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(46, 17);
+			this.label5.TabIndex = 59;
+			this.label5.Text = "label5";
+			// 
 			// CheckoutGUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(722, 412);
+			this.Controls.Add(this.label5);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.textBox1);
@@ -203,5 +214,6 @@ namespace PRN292_Project
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label5;
 	}
 }
