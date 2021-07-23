@@ -60,6 +60,18 @@
     <Compile Include="DAL\ProductDAO.cs" />
     <Compile Include="DAL\StaffDAO.cs" />
     <Compile Include="DAL\TypeDAO.cs" />
+    <Compile Include="DeliverGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeliverGUI.Designer.cs">
+      <DependentUpon>DeliverGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportDetailGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportDetailGUI.Designer.cs">
+      <DependentUpon>ImportDetailGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImportGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +149,15 @@
     </Compile>
     <EmbeddedResource Include="CheckoutGUI.resx">
       <DependentUpon>CheckoutGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeliverGUI.resx">
+      <DependentUpon>DeliverGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportDetailGUI.resx">
+      <DependentUpon>ImportDetailGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportGUI.resx">
+      <DependentUpon>ImportGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>

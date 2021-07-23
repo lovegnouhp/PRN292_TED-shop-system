@@ -29,12 +29,47 @@ namespace PRN292_Project
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			this.dataGridViewImports = new System.Windows.Forms.DataGridView();
+			this.btnImport = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewImports)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// dataGridViewImports
+			// 
+			this.dataGridViewImports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridViewImports.Location = new System.Drawing.Point(38, 30);
+			this.dataGridViewImports.Name = "dataGridViewImports";
+			this.dataGridViewImports.RowHeadersWidth = 51;
+			this.dataGridViewImports.RowTemplate.Height = 24;
+			this.dataGridViewImports.Size = new System.Drawing.Size(594, 338);
+			this.dataGridViewImports.TabIndex = 0;
+			// 
+			// btnImport
+			// 
+			this.btnImport.Location = new System.Drawing.Point(688, 334);
+			this.btnImport.Name = "btnImport";
+			this.btnImport.Size = new System.Drawing.Size(106, 34);
+			this.btnImport.TabIndex = 1;
+			this.btnImport.Text = "Import";
+			this.btnImport.UseVisualStyleBackColor = true;
+			// 
+			// ImportGUI
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(825, 404);
+			this.Controls.Add(this.btnImport);
+			this.Controls.Add(this.dataGridViewImports);
+			this.Name = "ImportGUI";
 			this.Text = "Import";
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewImports)).EndInit();
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion
+
+		private System.Windows.Forms.DataGridView dataGridViewImports;
+		private System.Windows.Forms.Button btnImport;
 	}
 }
