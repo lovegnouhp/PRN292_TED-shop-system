@@ -56,10 +56,13 @@
     <Compile Include="CheckoutGUI.Designer.cs">
       <DependentUpon>CheckoutGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\AccountDAO.cs" />
     <Compile Include="DAL\DAO.cs" />
     <Compile Include="DAL\ProductDAO.cs" />
     <Compile Include="DAL\StaffDAO.cs" />
     <Compile Include="DAL\TypeDAO.cs" />
+    <Compile Include="DTL\ImportDetail.cs" />
+    <Compile Include="DTL\OrderDetail.cs" />
     <Compile Include="ImportGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,13 +75,13 @@
     <Compile Include="MainGUI.Designer.cs">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Account.cs" />
-    <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\Import.cs" />
-    <Compile Include="Model\Order.cs" />
-    <Compile Include="Model\Product.cs" />
-    <Compile Include="Model\ProductType.cs" />
-    <Compile Include="Model\Staff.cs" />
+    <Compile Include="DTL\Account.cs" />
+    <Compile Include="DTL\Customer.cs" />
+    <Compile Include="DTL\Import.cs" />
+    <Compile Include="DTL\Order.cs" />
+    <Compile Include="DTL\Product.cs" />
+    <Compile Include="DTL\ProductType.cs" />
+    <Compile Include="DTL\Staff.cs" />
     <Compile Include="LoginGUI.cs">
       <SubType>Form</SubType>
     </Compile>

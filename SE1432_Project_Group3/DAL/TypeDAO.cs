@@ -1,4 +1,5 @@
-﻿using PRN292_Project.Model;
+﻿
+using PRN292_Project.DTL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,8 +9,8 @@ using System.Text;
 
 namespace PRN292_Project.DAL
 {
-	class TypeDAO
-	{
+    class TypeDAO
+    {
         public static IEnumerable<ProductType> getAllProductTypes()
         {
             var productTypes = new List<ProductType>();
@@ -21,7 +22,7 @@ namespace PRN292_Project.DAL
                 {
                     var productType = new ProductType
                     {
-                        TypeID = int.Parse(row["TypeID"].ToString()),
+                        TypeID = row["TypeID"].ToString(),
                         Name = row["Type_name"].ToString()
                     };
                     productTypes.Add(productType);
@@ -59,7 +60,7 @@ namespace PRN292_Project.DAL
 
         }
 
-        public static bool delete(int id)
+        public static bool delete(string id)
         {
             SqlCommand cmd = new SqlCommand("DELETE FROM [ProductType] WHERE [TypeID] = @TypeID");
             cmd.Parameters.AddWithValue("@TypeID", id);
@@ -80,18 +81,10 @@ namespace PRN292_Project.DAL
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];
-                    product = new Product
+                    type = new ProductType
                     {
-                        ProductID = int.Parse(row["ProductID"].ToString()),
-                        TypeID = int.Parse(row["TypeID"].ToString()),
-                        Produce_country = row["Produce_country"].ToString(),
-                        Name = row["Name"].ToString(),
-                        Description = row["Description"].ToString(),
-                        User_guide = row["User_guide"].ToString(),
-                        Price = double.Parse(row["Price"].ToString()),
-                        Sell_price = double.Parse(row["Sell_price"].ToString()),
-                        Quantity = int.Parse(row["Quantity"].ToString())
-
+                        TypeID = row["Type_name"].ToString(),
+                        Name = row["Name"].ToString()
                     };
 
                 }
@@ -100,7 +93,7 @@ namespace PRN292_Project.DAL
             {
                 throw new Exception(ex.Message);
             }
-            return product;
+            return type;
         }
     }
 }

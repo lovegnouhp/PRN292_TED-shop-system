@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PRN292_Project.DAL
 {
-	class StaffDAO
+	class StaffDAO.DAL
 	{
 
 	}

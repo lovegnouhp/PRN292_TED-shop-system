@@ -21,7 +21,6 @@ namespace PRN292_Project.DAL
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-
             }
 
         }
