@@ -46,6 +46,7 @@ namespace PRN292_Project
             this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // btnLogin
             // 
@@ -56,6 +57,7 @@ namespace PRN292_Project
             this.btnLogin.TabIndex = 13;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // labelPassword
             // 

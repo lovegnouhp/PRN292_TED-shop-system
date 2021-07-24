@@ -52,20 +52,20 @@ namespace PRN292_Project.DAL
             return DAO.GetDataTable(cmd);
         }*/
 
-        public static bool insertStaff(Staff p)
+        public static bool insertStaff(Staff s)
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO [Staff]([StaffID],[Name],[Address],[Phone],[BankAccount])" +
                 "VALUES(@StaffID,@Name,@Address,@Phone,@BankAccount)");
-            cmd.Parameters.AddWithValue("@StaffID", p.StaffID);
-            cmd.Parameters.AddWithValue("@Name", p.Name);
-            cmd.Parameters.AddWithValue("@Address", p.Address);
-            cmd.Parameters.AddWithValue("@Phone", p.Phone);
-            cmd.Parameters.AddWithValue("@BankAccount", p.BankAccount);
+            cmd.Parameters.AddWithValue("@StaffID", s.StaffID);
+            cmd.Parameters.AddWithValue("@Name", s.Name);
+            cmd.Parameters.AddWithValue("@Address", s.Address);
+            cmd.Parameters.AddWithValue("@Phone", s.Phone);
+            cmd.Parameters.AddWithValue("@BankAccount", s.BankAccount);
             return DAO.UpdateTable(cmd);
 
         }
 
-        public static bool update(Staff p)
+/*        public static bool update(Staff p)
         {
             SqlCommand cmd = new SqlCommand("UPDATE [Staff] " +
                 "SET [Name] = @Name," +
@@ -85,7 +85,7 @@ namespace PRN292_Project.DAL
             cmd.Parameters.AddWithValue("@StaffID", id);
             return DAO.UpdateTable(cmd);
 
-        }
+        }*/
 
         public static Staff getStaffByID(string id)
         {
@@ -118,5 +118,26 @@ namespace PRN292_Project.DAL
             return Staff;
         }
 
+        public static string getStaffIDByUsername(string username)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT [StaffID] " +
+                    "FROM [Staff] s INNER JOIN[Account] a ON s.[Staff] = a.[AccountID] " +
+                    "WHERE [Username] = @username");
+                cmd.Parameters.AddWithValue("@username", username);
+                DataTable dt = DAO.GetDataTable(cmd);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    return row["StaffID"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return "";
+        }
     }
 }

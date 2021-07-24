@@ -44,9 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\CustomerDAO.cs" />
     <Compile Include="DAL\ImportDAO.cs" />
     <Compile Include="DAL\OrderDAO.cs" />
     <Compile Include="DTL\Account.cs" />
+    <Compile Include="GUI\AboutGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AboutGUI.Designer.cs">
+      <DependentUpon>AboutGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\CartGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +76,12 @@
     <Compile Include="DTL\Cart.cs" />
     <Compile Include="DTL\ImportDetail.cs" />
     <Compile Include="DTL\OrderDetail.cs" />
+    <Compile Include="GUI\DeliveryGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\DeliveryGUI.Designer.cs">
+      <DependentUpon>DeliveryGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ImportGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +107,12 @@
     <Compile Include="GUI\LoginGUI.Designer.cs">
       <DependentUpon>LoginGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ManageOrderGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ManageOrderGUI.Designer.cs">
+      <DependentUpon>ManageOrderGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ProductDetailGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,7 +125,13 @@
     <Compile Include="GUI\ProductGUI.Designer.cs">
       <DependentUpon>ProductGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Program.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="GUI\ReportGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ReportGUI.Designer.cs">
+      <DependentUpon>ReportGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\StoreGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,14 +169,20 @@
     <Compile Include="GUI\StaffGUI.Designer.cs">
       <DependentUpon>StaffGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\TypeGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\TypeGUI.Designer.cs">
-      <DependentUpon>TypeGUI.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="GUI\AboutGUI.resx">
+      <DependentUpon>AboutGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CartGUI.resx">
+      <DependentUpon>CartGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\CheckoutGUI.resx">
       <DependentUpon>CheckoutGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DeliveryGUI.resx">
+      <DependentUpon>DeliveryGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ImportGUI.resx">
+      <DependentUpon>ImportGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>
@@ -159,11 +190,20 @@
     <EmbeddedResource Include="GUI\MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ManageOrderGUI.resx">
+      <DependentUpon>ManageOrderGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductDetailGUI.resx">
       <DependentUpon>ProductDetailGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductGUI.resx">
       <DependentUpon>ProductGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ReportGUI.resx">
+      <DependentUpon>ReportGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StaffGUI.resx">
+      <DependentUpon>StaffGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\StoreGUI.resx">
       <DependentUpon>StoreGUI.cs</DependentUpon>
@@ -202,11 +242,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\161332013_906788866764623_1725882603660624210_n.jpg" />
     <Content Include="Images\icons8-business-report-100.png" />
+    <Content Include="Images\icons8-delivery-64.png" />
+    <Content Include="Images\icons8-import-64.png" />
     <Content Include="Images\icons8-login-as-user-80.png" />
     <Content Include="Images\icons8-more-info-512.png" />
+    <Content Include="Images\icons8-product-100.png" />
+    <Content Include="Images\icons8-product-documents-64.png" />
     <Content Include="Images\icons8-shop-256.png" />
     <Content Include="Images\icons8-shopping-cart-64.png" />
+    <Content Include="Images\icons8-staff-96.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,7 +21,7 @@ namespace PRN292_Project.DAL
                 {
                     var Account = new Account
                     {
-                        Username = row["TypeID"].ToString(),
+                        Username = row["Username"].ToString(),
                         Password = row["Password"].ToString(),
                         Role = row["Role"].ToString(),
                         AccountID = row["AccountID"].ToString()
@@ -53,6 +53,27 @@ namespace PRN292_Project.DAL
             cmd.Parameters.AddWithValue("@role", a.Role);
             cmd.Parameters.AddWithValue("@accountID", a.AccountID);
             return DAO.UpdateTable(cmd);
+        }
+
+        public static bool checkUsernameExist(string username)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT [Username],[Password],[Role] " +
+                    "FROM [Account] " +
+                    "WHERE [Username] = @username");
+                cmd.Parameters.AddWithValue("@username", username);
+                DataTable dt = DAO.GetDataTable(cmd);
+                if (dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return false;
         }
 
         /*public static bool update(Account a)

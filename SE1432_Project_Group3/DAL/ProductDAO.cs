@@ -22,7 +22,7 @@ namespace PRN292_Project.DAL
                     var product = new Product
                     {
                         ProductID = row["ProductID"].ToString(),
-                        TypeID = row["TypeID"].ToString(),
+                        TypeID = row["ProductTypeID"].ToString(),
                         Produce_country = row["Produce_country"].ToString(),
                         Name = row["Name"].ToString(),
                         Description = row["Description"].ToString(),
@@ -44,24 +44,24 @@ namespace PRN292_Project.DAL
         }
         public static DataTable getDataTable()
         {
-            string sql = "SELECT [ProductID],[TypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity] " +
+            string sql = "SELECT [ProductID],[ProductTypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity] " +
                 "FROM [Product]";
             return DAO.GetDataTable(sql);
         }
 
         public static DataTable getProductByTypeID(string typeID)
         {
-            SqlCommand cmd = new SqlCommand("SELECT [ProductID],[TypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity] " +
+            SqlCommand cmd = new SqlCommand("SELECT [ProductID],[ProductTypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity] " +
                 "FROM [Product] " +
-                "WHERE [TypeID] = @TypeID");
+                "WHERE [ProductTypeID] = @TypeID");
             cmd.Parameters.AddWithValue("@TypeID", typeID);
             return DAO.GetDataTable(cmd);
         }
 
         public static bool insertProduct(Product p)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [Product] ([TypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity]) " +
-                "VALUES(@TypeID, @Produce_country, @Name, @Description, @User_guide, @Price, @Sell_price, @Quantity)");
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Product] ([ProductID], [ProductTypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity]) " +
+                "VALUES(NEWID(), @TypeID, @Produce_country, @Name, @Description, @User_guide, @Price, @Sell_price, @Quantity)");
             cmd.Parameters.AddWithValue("@TypeID", p.TypeID);
             cmd.Parameters.AddWithValue("@Produce_country", p.Produce_country);
             cmd.Parameters.AddWithValue("@Name", p.Name);
@@ -77,7 +77,7 @@ namespace PRN292_Project.DAL
         public static bool update(Product p)
         {
             SqlCommand cmd = new SqlCommand("UPDATE [Product] " +
-                "SET [TypeID] = @TypeID, [Produce_country] = @Produce_country, [Name] = @Name, [Description] = @Description, " +
+                "SET [ProductTypeID] = @TypeID, [Produce_country] = @Produce_country, [Name] = @Name, [Description] = @Description, " +
                 "[User_guide] = @User_guide, [Price] = @Price, [Sell_price] = @Sell_price, [Quantity] = @Quantity WHERE [ProductID] = @ProductID");
             cmd.Parameters.AddWithValue("@TypeID", p.TypeID);
             cmd.Parameters.AddWithValue("@Produce_country", p.Produce_country);
@@ -105,7 +105,7 @@ namespace PRN292_Project.DAL
             Product product = null;
             try
             {
-                SqlCommand cmd = new SqlCommand("SELECT [ProductID],[TypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity] " +
+                SqlCommand cmd = new SqlCommand("SELECT [ProductID],[ProductTypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity] " +
                 "FROM [Product] " +
                 "WHERE [ProductID] = @ProductID");
                 cmd.Parameters.AddWithValue("@ProductID", id);
@@ -116,7 +116,7 @@ namespace PRN292_Project.DAL
                     product = new Product
                     {
                         ProductID = row["ProductID"].ToString(),
-                        TypeID = row["TypeID"].ToString(),
+                        TypeID = row["ProductTypeID"].ToString(),
                         Produce_country = row["Produce_country"].ToString(),
                         Name = row["Name"].ToString(),
                         Description = row["Description"].ToString(),

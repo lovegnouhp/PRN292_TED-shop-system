@@ -117,20 +117,54 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icons8-business-report-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="icons8-delivery-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-delivery-64.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-business-report-1001" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\icons8-business-report-100.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-login-as-user-80" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\icons8-login-as-user-80.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-more-info-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\icons8-more-info-512.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-shop-256" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\icons8-shop-256.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-login-as-user-80" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-login-as-user-80.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-product-documents-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-product-documents-64.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-more-info-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-more-info-512.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-login-as-user-801" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-login-as-user-80.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-staff-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-staff-96.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-shopping-cart-641" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-shopping-cart-64.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-import-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-import-64.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-shopping-cart-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\icons8-shopping-cart-64.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-shop-2561" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-shop-256.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-product-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-product-100.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-business-report-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-business-report-100.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-more-info-5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\icons8-more-info-512.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="161332013_906788866764623_1725882603660624210_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\161332013_906788866764623_1725882603660624210_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

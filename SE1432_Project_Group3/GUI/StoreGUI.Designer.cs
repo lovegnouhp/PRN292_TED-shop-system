@@ -29,46 +29,45 @@ namespace PRN292_Project
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StoreGUI));
-            this.dataGridViewGenre = new System.Windows.Forms.DataGridView();
-            this.dataGridViewAlbum = new System.Windows.Forms.DataGridView();
+            this.dataGridViewProductType = new System.Windows.Forms.DataGridView();
+            this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGenre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlbum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridViewGenre
+            // dataGridViewProductType
             // 
-            this.dataGridViewGenre.AccessibleName = "";
-            this.dataGridViewGenre.AllowUserToAddRows = false;
-            this.dataGridViewGenre.AllowUserToDeleteRows = false;
-            this.dataGridViewGenre.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGenre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewGenre.Location = new System.Drawing.Point(12, 12);
-            this.dataGridViewGenre.Name = "dataGridViewGenre";
-            this.dataGridViewGenre.ReadOnly = true;
-            this.dataGridViewGenre.Size = new System.Drawing.Size(240, 254);
-            this.dataGridViewGenre.TabIndex = 0;
-            this.dataGridViewGenre.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGenre_CellClick);
+            this.dataGridViewProductType.AccessibleName = "";
+            this.dataGridViewProductType.AllowUserToAddRows = false;
+            this.dataGridViewProductType.AllowUserToDeleteRows = false;
+            this.dataGridViewProductType.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewProductType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProductType.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewProductType.Name = "dataGridViewProductType";
+            this.dataGridViewProductType.ReadOnly = true;
+            this.dataGridViewProductType.Size = new System.Drawing.Size(240, 254);
+            this.dataGridViewProductType.TabIndex = 0;
+            this.dataGridViewProductType.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewType_CellClick);
             // 
-            // dataGridViewAlbum
+            // dataGridViewProduct
             // 
-            this.dataGridViewAlbum.AccessibleName = "dataGridViewAlbum";
-            this.dataGridViewAlbum.AllowUserToAddRows = false;
-            this.dataGridViewAlbum.AllowUserToDeleteRows = false;
-            this.dataGridViewAlbum.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewAlbum.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAlbum.Location = new System.Drawing.Point(12, 284);
-            this.dataGridViewAlbum.Name = "dataGridViewAlbum";
-            this.dataGridViewAlbum.ReadOnly = true;
-            this.dataGridViewAlbum.Size = new System.Drawing.Size(744, 209);
-            this.dataGridViewAlbum.TabIndex = 1;
-            this.dataGridViewAlbum.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAlbum_CellClick);
+            this.dataGridViewProduct.AccessibleName = "dataGridViewAlbum";
+            this.dataGridViewProduct.AllowUserToAddRows = false;
+            this.dataGridViewProduct.AllowUserToDeleteRows = false;
+            this.dataGridViewProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProduct.Location = new System.Drawing.Point(12, 284);
+            this.dataGridViewProduct.Name = "dataGridViewProduct";
+            this.dataGridViewProduct.ReadOnly = true;
+            this.dataGridViewProduct.Size = new System.Drawing.Size(744, 209);
+            this.dataGridViewProduct.TabIndex = 1;
+            this.dataGridViewProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProduct_CellClick);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::PRN292_Project.Properties.Resources._161332013_906788866764623_1725882603660624210_n;
             this.pictureBox1.Location = new System.Drawing.Point(271, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(485, 254);
@@ -82,13 +81,13 @@ namespace PRN292_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 514);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.dataGridViewAlbum);
-            this.Controls.Add(this.dataGridViewGenre);
+            this.Controls.Add(this.dataGridViewProduct);
+            this.Controls.Add(this.dataGridViewProductType);
             this.Name = "StoreGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StoreGUI";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGenre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlbum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -96,8 +95,8 @@ namespace PRN292_Project
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewGenre;
-        private System.Windows.Forms.DataGridView dataGridViewAlbum;
+        private System.Windows.Forms.DataGridView dataGridViewProductType;
+        private System.Windows.Forms.DataGridView dataGridViewProduct;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

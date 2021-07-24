@@ -45,7 +45,8 @@ namespace PRN292_Project.DAL
 
         public static bool insert(ProductType t)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [ProductType] ([Type_name]) VALUES (@[Type_name])");
+            SqlCommand cmd = new SqlCommand("INSERT INTO [ProductType] ([ProductTypeID],[Type_name]) VALUES (@ProductTypeID, @Type_name)");
+            cmd.Parameters.AddWithValue("@ProductTypeID", t.TypeID);
             cmd.Parameters.AddWithValue("@Type_name", t.Name);
             return DAO.UpdateTable(cmd);
 

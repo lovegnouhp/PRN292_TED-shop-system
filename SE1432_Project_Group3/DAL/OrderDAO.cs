@@ -13,23 +13,14 @@ namespace PRN292_Project.DAL
             return DAO.GetDataTable(sql);
         }
 
-        static public int GetMaxID()
-        {
-            int max = -1;
-            string sql = "Select Max(OrderID) as MaxID from Orders";
-            DataTable dt = DAO.GetDataTable(sql);
-            if (dt.Rows.Count > 0) max = (int)dt.Rows[0]["MaxID"];
-            return max;
-        }
-
         public static bool Insert(Order o)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [Orders] ([OrderID],[CustomerID],[Order_date],[Total_amount] " +
-                "VALUES([OrderID] = @orderID, [CustomerID] = @customerID, [Order_date] = @orderDate, [Total_amount] = @totalAmount)");
-            cmd.Parameters.AddWithValue("@orderID", o.OrderID);
-            cmd.Parameters.AddWithValue("@customerID", o.CustomerID);
-            cmd.Parameters.AddWithValue("@orderDate", o.OrderDate);
-            cmd.Parameters.AddWithValue("@totalAmount", o.Total);
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Orders] ([OrderID],[CustomerID],[Order_date],[Total_amount]) " +
+                "VALUES(@OrderID, @CustomerID, @Order_date, @Total_amount)");
+            cmd.Parameters.AddWithValue("@OrderID", o.OrderID);
+            cmd.Parameters.AddWithValue("@CustomerID", o.CustomerID);
+            cmd.Parameters.AddWithValue("@Order_date", o.OrderDate);
+            cmd.Parameters.AddWithValue("@Total_amount", o.Total);
             return DAO.UpdateTable(cmd);
         }
 

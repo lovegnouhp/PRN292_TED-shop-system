@@ -12,7 +12,7 @@ namespace PRN292_Project.DAL
     {
         string ShoppingCartId { get; set; }
         static string CustomerID { get; set; }
-        public static string UserName { get; set; }
+        public static string accID { get; set; }
         public static ShoppingCartDAO GetCart()
         {
             var cart = new ShoppingCartDAO();
@@ -63,7 +63,6 @@ namespace PRN292_Project.DAL
         {
             // Save the order
             OrderDAO.Insert(order);
-            string orderID = Guid.NewGuid().ToString();
             var cartItems = GetCartItems();
             // Iterate over the items in the cart, adding the 
             // order details for each
@@ -71,14 +70,14 @@ namespace PRN292_Project.DAL
             {
                 var orderDetail = new OrderDetail
                 {
-                    OrderID = orderID,
+                    OrderID = order.OrderID,
                     OrderLine = i + 1,
                     ProductID = cartItems[i].ProductID,
                     Quantity = cartItems[i].Count
                 };
 
                 SqlCommand cmd1 = new SqlCommand("INSERT INTO [Order_details] ([OrderID],[OrderLine],[Quantity],[ProductID]) " +
-                    "VALUES([OrderID] = @orderID, [OrderLine] = @orderLine, [Quantity] = @quantity), [ProductID] = @productID");
+                    "VALUES(@orderID, @orderLine, @quantity, @productID)");
                 cmd1.Parameters.AddWithValue("@orderID", orderDetail.OrderID);
                 cmd1.Parameters.AddWithValue("@orderLine", orderDetail.OrderLine);
                 cmd1.Parameters.AddWithValue("@quantity", orderDetail.Quantity);
@@ -89,20 +88,20 @@ namespace PRN292_Project.DAL
             // Empty the shopping cart
             CartDAO.Delete(ShoppingCartId);
             // Return the OrderId as the confirmation number
-            return orderID;
+            return order.OrderID;
         }
 
-        public void AddToCart(string id)
+        public void AddToCart(string productID)
         {
             // Get the matching cart and album instances
             var cartItem = CartDAO.GetCarts().Where(c => c.CustomerID == ShoppingCartId
-                && c.ProductID == id).FirstOrDefault();
+                && c.ProductID == productID).FirstOrDefault();
             if (cartItem == null)
             {
                 // Create a new cart item if no cart item exists
                 cartItem = new Cart
                 {
-                    ProductID = id,
+                    ProductID = productID,
                     CustomerID = ShoppingCartId,
                     Count = 1,
                     DateCreated = DateTime.Now
@@ -144,8 +143,8 @@ namespace PRN292_Project.DAL
         {
             if (CustomerID == null)
             {
-                if (UserName != null)
-                    CustomerID = UserName;
+                if (accID != null)
+                    CustomerID = accID;
                 else
                 {
                     Guid tempCustomerID = Guid.NewGuid();
@@ -159,8 +158,8 @@ namespace PRN292_Project.DAL
         // to be associated with their username
         public void MigrateCart()
         {
-            CartDAO.MigrateCart(ShoppingCartId, UserName);
-            CustomerID = UserName;
+            CartDAO.MigrateCart(ShoppingCartId, accID);
+            CustomerID = accID;
         }
 
         public void ResetCartID()

@@ -43,9 +43,9 @@ namespace PRN292_Project.DAL
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO [Carts] VALUES(" +
-                    "@CartID, @productID, @count, @dateCreated)");
-                cmd.Parameters.AddWithValue("@cartID", cart.CustomerID);
+                SqlCommand cmd = new SqlCommand("INSERT INTO [Carts] ([CustomerID],[ProductID],[Count],[DateCreated]) " +
+                    "VALUES(@customerID, @productID, @count, @dateCreated)");
+                cmd.Parameters.AddWithValue("@customerID", cart.CustomerID);
                 cmd.Parameters.AddWithValue("@productID", cart.ProductID);
                 cmd.Parameters.AddWithValue("@count", cart.Count);
                 cmd.Parameters.AddWithValue("@dateCreated", cart.DateCreated);
@@ -62,12 +62,12 @@ namespace PRN292_Project.DAL
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("UPDATE Carts SET CartID = @CartID, " +
-                    "albumID = @albumID, count = @count, dateCreated = @dateCreated " +
-                    "WHERE recordID = @recordID");
+                SqlCommand cmd = new SqlCommand("UPDATE Carts SET CustomerID = @customerID, " +
+                    "ProductID = @productID, Count = @count, dateCreated = @dateCreated " +
+                    "WHERE RecordID = @recordID");
                 cmd.Parameters.AddWithValue("@recordID", cart.RecordID);
-                cmd.Parameters.AddWithValue("@cartID", cart.CustomerID);
-                cmd.Parameters.AddWithValue("@albumID", cart.ProductID);
+                cmd.Parameters.AddWithValue("@customerID", cart.CustomerID);
+                cmd.Parameters.AddWithValue("@productID", cart.ProductID);
                 cmd.Parameters.AddWithValue("@count", cart.Count);
                 cmd.Parameters.AddWithValue("@dateCreated", cart.DateCreated);
                 DAO.UpdateTable(cmd);
@@ -78,14 +78,14 @@ namespace PRN292_Project.DAL
 
             }
         }
-        public static void Delete(string cartID, string productID)
+        public static void Delete(string customerID, string productID)
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("DELETE FROM Carts WHERE cartID = @cartID "
-                    + "AND albumID = @albumID");
-                cmd.Parameters.AddWithValue("cartID", cartID);
-                cmd.Parameters.AddWithValue("albumID", productID);
+                SqlCommand cmd = new SqlCommand("DELETE FROM Carts WHERE CustomerID = @customerID "
+                    + "AND ProductID = @productID");
+                cmd.Parameters.AddWithValue("customerID", customerID);
+                cmd.Parameters.AddWithValue("productID", productID);
                 DAO.UpdateTable(cmd);
             }
             catch (Exception ex)
@@ -95,12 +95,12 @@ namespace PRN292_Project.DAL
             }
         }
 
-        public static void Delete(string cartID)
+        public static void Delete(string customerID)
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("DELETE FROM Carts WHERE cartID = @cartID");
-                cmd.Parameters.AddWithValue("cartID", cartID);
+                SqlCommand cmd = new SqlCommand("DELETE FROM Carts WHERE CustomerID = @customerID");
+                cmd.Parameters.AddWithValue("@customerID", customerID);
 
                 DAO.UpdateTable(cmd);
             }
@@ -110,14 +110,14 @@ namespace PRN292_Project.DAL
             }
         }
 
-        public static void MigrateCart(string shoppingCartId, string userName)
+        public static void MigrateCart(string shoppingCartId, string customerID)
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("UPDATE carts SET cartID = @userName "
-                    + "WHERE cartID = @shoppingCartID");
+                SqlCommand cmd = new SqlCommand("UPDATE carts SET CustomerID = @customerID "
+                    + "WHERE CustomerID = @shoppingCartID");
                 cmd.Parameters.AddWithValue("@shoppingCartID", shoppingCartId);
-                cmd.Parameters.AddWithValue("@userName", userName);
+                cmd.Parameters.AddWithValue("@customerID", customerID);
                 DAO.UpdateTable(cmd);
             }
             catch (Exception exx)

@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PRN292_Project
+namespace PRN292_Project.GUI
 {
-	public partial class TypeGUI : Form
-	{
-		public TypeGUI()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class DeliveryGUI : Form
+    {
+        public DeliveryGUI()
+        {
+            InitializeComponent();
+        }
+    }
 }

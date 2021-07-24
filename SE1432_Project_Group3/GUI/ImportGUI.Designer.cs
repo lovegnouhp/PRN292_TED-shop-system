@@ -29,10 +29,17 @@ namespace PRN292_Project
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Text = "Import";
+            this.SuspendLayout();
+            // 
+            // ImportGUI
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(768, 514);
+            this.Name = "ImportGUI";
+            this.Text = "Import";
+            this.ResumeLayout(false);
+
 		}
 
 		#endregion

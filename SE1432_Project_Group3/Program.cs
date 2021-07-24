@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PRN292_Project.GUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace PRN292_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainGUI());
+            //Application.Run(new RegisterTypeGUI());
         }
     }
 }
