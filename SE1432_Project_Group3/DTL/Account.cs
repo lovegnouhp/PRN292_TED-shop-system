@@ -5,12 +5,11 @@ using System.Text;
 
 namespace PRN292_Project.DTL
 {
-    class Account
+    public class Account
     {
         private string username;
         private string password;
         private string role;
-        private string accountID;
         public Account()
         {
         }
@@ -18,6 +17,5 @@ namespace PRN292_Project.DTL
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
         public string Role { get => role; set => role = value; }
-        public string AccountID { get => accountID; set => accountID = value; }
     }
 }

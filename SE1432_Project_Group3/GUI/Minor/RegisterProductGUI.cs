@@ -40,7 +40,7 @@ namespace PRN292_Project
 
 		private void btnSave_Click(object sender, EventArgs e)
 		{
-			double price, sell_price;
+			double price;
 
 			if (string.IsNullOrEmpty(txtName.Text))
 			{

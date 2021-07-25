@@ -7,8 +7,8 @@ using System.Linq;
 
 namespace PRN292_Project.DAL
 {
-	class StaffDAO
-	{
+    class StaffDAO
+    {
         public static IEnumerable<Staff> getAllStaffs()
         {
             var Staffs = new List<Staff>();
@@ -37,6 +37,7 @@ namespace PRN292_Project.DAL
             return Staffs.AsEnumerable();
 
         }
+
         public static DataTable getDataTable()
         {
             string sql = "SELECT [StaffID],[Name],[Address],[Phone],[BankAccount] FROM [Staff]";
@@ -54,90 +55,38 @@ namespace PRN292_Project.DAL
 
         public static bool insertStaff(Staff s)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [Staff]([StaffID],[Name],[Address],[Phone],[BankAccount])" +
-                "VALUES(@StaffID,@Name,@Address,@Phone,@BankAccount)");
+            AccountDAO.insert(s);
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Staff] " +
+                "([StaffID],[Name],[Address],[Phone],[BankAccount],[Username]) " +
+                "VALUES(@StaffID,@Name,@Address,@Phone,@BankAccount, @Username)");
             cmd.Parameters.AddWithValue("@StaffID", s.StaffID);
             cmd.Parameters.AddWithValue("@Name", s.Name);
             cmd.Parameters.AddWithValue("@Address", s.Address);
             cmd.Parameters.AddWithValue("@Phone", s.Phone);
             cmd.Parameters.AddWithValue("@BankAccount", s.BankAccount);
             return DAO.UpdateTable(cmd);
-
         }
 
-/*        public static bool update(Staff p)
-        {
-            SqlCommand cmd = new SqlCommand("UPDATE [Staff] " +
-                "SET [Name] = @Name," +
-                "[Address] = @Address,[Phone] = @Phone,[BankAccount] = @BankAccount WHERE [StaffID] = @StaffID");
-            cmd.Parameters.AddWithValue("@StaffID", p.StaffID);
-            cmd.Parameters.AddWithValue("@Name", p.Name);
-            cmd.Parameters.AddWithValue("@Address", p.Address);
-            cmd.Parameters.AddWithValue("@Phone", p.Phone);
-            cmd.Parameters.AddWithValue("@BankAccount", p.BankAccount);
-            return DAO.UpdateTable(cmd);
-
-        }
-
-        public static bool delete(string id)
-        {
-            SqlCommand cmd = new SqlCommand("DELETE FROM [Staff] WHERE [StaffID]=@StaffID");
-            cmd.Parameters.AddWithValue("@StaffID", id);
-            return DAO.UpdateTable(cmd);
-
-        }*/
-
-        public static Staff getStaffByID(string id)
-        {
-            Staff Staff = null;
-            try
-            {
-                SqlCommand cmd = new SqlCommand("SELECT [StaffID],[TypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity] " +
-                "FROM [Staff] " +
-                "WHERE [StaffID] = @StaffID");
-                cmd.Parameters.AddWithValue("@StaffID", id);
-                DataTable dt = DAO.GetDataTable(cmd);
-                if (dt.Rows.Count > 0)
+        /*        public static bool update(Staff p)
                 {
-                    DataRow row = dt.Rows[0];
-                    Staff = new Staff
-                    {
-                        StaffID = row["StaffID"].ToString(),
-                        Name = row["Name"].ToString(),
-                        Address = row["Address"].ToString(),
-                        Phone = row["Phone"].ToString(),
-                        BankAccount = row["BankAccount"].ToString()
-                    };
+                    SqlCommand cmd = new SqlCommand("UPDATE [Staff] " +
+                        "SET [Name] = @Name," +
+                        "[Address] = @Address,[Phone] = @Phone,[BankAccount] = @BankAccount WHERE [StaffID] = @StaffID");
+                    cmd.Parameters.AddWithValue("@StaffID", p.StaffID);
+                    cmd.Parameters.AddWithValue("@Name", p.Name);
+                    cmd.Parameters.AddWithValue("@Address", p.Address);
+                    cmd.Parameters.AddWithValue("@Phone", p.Phone);
+                    cmd.Parameters.AddWithValue("@BankAccount", p.BankAccount);
+                    return DAO.UpdateTable(cmd);
 
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return Staff;
-        }
 
-        public static string getStaffIDByUsername(string username)
-        {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("SELECT [StaffID] " +
-                    "FROM [Staff] s INNER JOIN[Account] a ON s.[Staff] = a.[AccountID] " +
-                    "WHERE [Username] = @username");
-                cmd.Parameters.AddWithValue("@username", username);
-                DataTable dt = DAO.GetDataTable(cmd);
-                if (dt.Rows.Count > 0)
+                public static bool delete(string id)
                 {
-                    DataRow row = dt.Rows[0];
-                    return row["StaffID"].ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return "";
-        }
+                    SqlCommand cmd = new SqlCommand("DELETE FROM [Staff] WHERE [StaffID]=@StaffID");
+                    cmd.Parameters.AddWithValue("@StaffID", id);
+                    return DAO.UpdateTable(cmd);
+
+                }*/
     }
 }

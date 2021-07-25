@@ -19,6 +19,7 @@ namespace PRN292_Project
         {
             InitializeComponent();
         }
+
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             string username = txtUserName.Text.Trim();
@@ -43,7 +44,9 @@ namespace PRN292_Project
                 Variables.Username = account.Username;
                 Variables.Role = account.Role;
                 if (account.Role == "customer") {
-                    ShoppingCartDAO.accID = account.AccountID;
+                    var customer = CustomerDAO.getAllCustomers().Where(
+                        c => c.Username == account.Username).FirstOrDefault();
+                    ShoppingCartDAO.accID = customer.CustomerID;
                     ShoppingCartDAO.GetCart().MigrateCart();
                     this.DialogResult = DialogResult.OK;
                 } else

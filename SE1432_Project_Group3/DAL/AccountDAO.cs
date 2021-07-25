@@ -23,8 +23,7 @@ namespace PRN292_Project.DAL
                     {
                         Username = row["Username"].ToString(),
                         Password = row["Password"].ToString(),
-                        Role = row["Role"].ToString(),
-                        AccountID = row["AccountID"].ToString()
+                        Role = row["Role"].ToString()
                     };
                     Accounts.Add(Account);
                 }
@@ -40,40 +39,18 @@ namespace PRN292_Project.DAL
 
         public static DataTable getDataTable()
         {
-            string sql = "SELECT [Username],[Password],[Role],[AccountID] FROM [Account]";
+            string sql = "SELECT [Username],[Password],[Role]FROM [Account]";
             return DAO.GetDataTable(sql);
         }
 
         public static bool insert(Account a)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [Account] ([Username],[Password],[Role],[AccountID] ) " +
-                "VALUES (@username, @password, @role, @accountID)");
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Account] ([Username],[Password],[Role]) " +
+                "VALUES (@username, @password, @role)");
             cmd.Parameters.AddWithValue("@username", a.Username);
             cmd.Parameters.AddWithValue("@password", a.Password);
             cmd.Parameters.AddWithValue("@role", a.Role);
-            cmd.Parameters.AddWithValue("@accountID", a.AccountID);
             return DAO.UpdateTable(cmd);
-        }
-
-        public static bool checkUsernameExist(string username)
-        {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("SELECT [Username],[Password],[Role] " +
-                    "FROM [Account] " +
-                    "WHERE [Username] = @username");
-                cmd.Parameters.AddWithValue("@username", username);
-                DataTable dt = DAO.GetDataTable(cmd);
-                if (dt.Rows.Count > 0)
-                {
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return false;
         }
 
         /*public static bool update(Account a)

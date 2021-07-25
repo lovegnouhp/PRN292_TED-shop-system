@@ -60,10 +60,10 @@
     <Compile Include="GUI\CartGUI.Designer.cs">
       <DependentUpon>CartGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CheckoutGUI.cs">
+    <Compile Include="GUI\Minor\CheckoutGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\CheckoutGUI.Designer.cs">
+    <Compile Include="GUI\Minor\CheckoutGUI.Designer.cs">
       <DependentUpon>CheckoutGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\AccountDAO.cs" />
@@ -113,10 +113,10 @@
     <Compile Include="GUI\ManageOrderGUI.Designer.cs">
       <DependentUpon>ManageOrderGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ProductDetailGUI.cs">
+    <Compile Include="GUI\Minor\ProductDetailGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ProductDetailGUI.Designer.cs">
+    <Compile Include="GUI\Minor\ProductDetailGUI.Designer.cs">
       <DependentUpon>ProductDetailGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ProductGUI.cs">
@@ -145,16 +145,16 @@
     <Compile Include="GUI\RegisterCustomerGUI.Designer.cs">
       <DependentUpon>RegisterCustomerGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\RegisterProductGUI.cs">
+    <Compile Include="GUI\Minor\RegisterProductGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\RegisterProductGUI.Designer.cs">
+    <Compile Include="GUI\Minor\RegisterProductGUI.Designer.cs">
       <DependentUpon>RegisterProductGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\RegisterStaffGUI.cs">
+    <Compile Include="GUI\Minor\RegisterStaffGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\RegisterStaffGUI.Designer.cs">
+    <Compile Include="GUI\Minor\RegisterStaffGUI.Designer.cs">
       <DependentUpon>RegisterStaffGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\RegisterTypeGUI.cs">
@@ -175,7 +175,7 @@
     <EmbeddedResource Include="GUI\CartGUI.resx">
       <DependentUpon>CartGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CheckoutGUI.resx">
+    <EmbeddedResource Include="GUI\Minor\CheckoutGUI.resx">
       <DependentUpon>CheckoutGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DeliveryGUI.resx">
@@ -193,7 +193,7 @@
     <EmbeddedResource Include="GUI\ManageOrderGUI.resx">
       <DependentUpon>ManageOrderGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ProductDetailGUI.resx">
+    <EmbeddedResource Include="GUI\Minor\ProductDetailGUI.resx">
       <DependentUpon>ProductDetailGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductGUI.resx">
@@ -221,10 +221,10 @@
     <EmbeddedResource Include="GUI\RegisterCustomerGUI.resx">
       <DependentUpon>RegisterCustomerGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\RegisterProductGUI.resx">
+    <EmbeddedResource Include="GUI\Minor\RegisterProductGUI.resx">
       <DependentUpon>RegisterProductGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\RegisterStaffGUI.resx">
+    <EmbeddedResource Include="GUI\Minor\RegisterStaffGUI.resx">
       <DependentUpon>RegisterStaffGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\RegisterTypeGUI.resx">

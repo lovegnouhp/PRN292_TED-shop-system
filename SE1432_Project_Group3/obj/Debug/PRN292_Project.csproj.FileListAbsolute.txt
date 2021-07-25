@@ -40,3 +40,5 @@ D:\OneDrive - Ant Studio\PhuongNgo\FPTU\Semester-5\PRN292\repos\Project\SE1432_P
 D:\OneDrive - Ant Studio\PhuongNgo\FPTU\Semester-5\PRN292\repos\Project\SE1432_Project_Group3\obj\Debug\PRN292_Project.CartGUI.resources
 D:\OneDrive - Ant Studio\PhuongNgo\FPTU\Semester-5\PRN292\repos\Project\SE1432_Project_Group3\obj\Debug\PRN292_Project.GUI.ManageOrderGUI.resources
 D:\OneDrive - Ant Studio\PhuongNgo\FPTU\Semester-5\PRN292\repos\Project\SE1432_Project_Group3\obj\Debug\PRN292_Project.StaffGUI.resources
+D:\OneDrive - Ant Studio\PhuongNgo\FPTU\Semester-5\PRN292\repos\Project\SE1432_Project_Group3\obj\Debug\PRN292_Project.GUI.DeliveryGUI.resources
+D:\OneDrive - Ant Studio\PhuongNgo\FPTU\Semester-5\PRN292\repos\Project\SE1432_Project_Group3\obj\Debug\PRN292_Project.ImportGUI.resources

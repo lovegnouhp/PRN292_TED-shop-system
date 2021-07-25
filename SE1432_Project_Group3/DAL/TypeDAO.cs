@@ -34,8 +34,8 @@ namespace PRN292_Project.DAL
             }
 
             return productTypes.AsEnumerable();
-
         }
+
         public static DataTable getDataTable()
         {
             string sql = "SELECT [ProductTypeID],[Type_name] " +
@@ -58,7 +58,6 @@ namespace PRN292_Project.DAL
             cmd.Parameters.AddWithValue("@Type_name", t.Name);
             cmd.Parameters.AddWithValue("@ProductTypeID", t.TypeID);
             return DAO.UpdateTable(cmd);
-
         }
 
         public static bool delete(string id)
@@ -66,7 +65,6 @@ namespace PRN292_Project.DAL
             SqlCommand cmd = new SqlCommand("DELETE FROM [ProductType] WHERE [ProductTypeID] = @ProductTypeID");
             cmd.Parameters.AddWithValue("@ProductTypeID", id);
             return DAO.UpdateTable(cmd);
-
         }
 
         public static ProductType getTypeByID(string id)

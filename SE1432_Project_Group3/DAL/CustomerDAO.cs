@@ -48,23 +48,17 @@ namespace PRN292_Project.DAL
 
         public static bool insertCustomer(Customer c)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Customer]([CustomerID],[Name],[Phone],[Address]) " +
-                "VALUES(@cid, @Name, @Phone, @Address)");
+            AccountDAO.insert(c);
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Customer] " +
+                "([CustomerID],[Name],[Phone],[Address], [Username]) " +
+                "VALUES(@cid, @Name, @Phone, @Address, @Username)");
             cmd.Parameters.AddWithValue("@cid", c.CustomerID);
             cmd.Parameters.AddWithValue("@Name", c.Name);
             cmd.Parameters.AddWithValue("@Address", c.Address);
             cmd.Parameters.AddWithValue("@Phone", c.Phone);
+            cmd.Parameters.AddWithValue("@Username", c.Phone);
             return DAO.UpdateTable(cmd);
         }
-
-        /*public static DataTable getCustomerByTypeID(int typeID)
-        {
-            SqlCommand cmd = new SqlCommand("SELECT [CustomerID],[TypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity] " +
-                "FROM [Customer] " +
-                "WHERE [TypeID] = @TypeID");
-            cmd.Parameters.AddWithValue("@TypeID", typeID);
-            return DAO.GetDataTable(cmd);
-        }*/
 
         /*        public static bool update(Customer p)
                 {
@@ -116,28 +110,6 @@ namespace PRN292_Project.DAL
                 throw new Exception(ex.Message);
             }
             return Customer;
-        }
-
-        public static string getCustomerIDByUsername(string username)
-        {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("SELECT [CustomerID] " +
-                    "FROM [Customer] c INNER JOIN[Account] a ON c.[CustomerID] = a.[AccountID] " +
-                    "WHERE [Username] = @username");
-                cmd.Parameters.AddWithValue("@username", username);
-                DataTable dt = DAO.GetDataTable(cmd);
-                if (dt.Rows.Count > 0)
-                {
-                    DataRow row = dt.Rows[0];
-                    return row["CustomerID"].ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return "";
         }
     }
 }

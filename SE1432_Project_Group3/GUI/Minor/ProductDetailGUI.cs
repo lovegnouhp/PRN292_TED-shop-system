@@ -18,7 +18,9 @@ namespace PRN292_Project
             var product = ProductDAO.getProductByID(productID);
             txtName.Text = product.Name;
             txtCountry.Text = product.Produce_country;
-            txtType.Text = TypeDAO.getTypeByID(product.TypeID).Name.ToString();
+            //txtType.Text = TypeDAO.getTypeByID(product.TypeID).Name.ToString();
+            txtType.Text = TypeDAO.getAllProductTypes().Where(
+                type => type.TypeID== product.TypeID).FirstOrDefault().Name.ToString();
             txtPrice.Text = product.Sell_price.ToString();
             txtDescription.Text = product.Description;
             txtUserGuide.Text = product.User_guide;

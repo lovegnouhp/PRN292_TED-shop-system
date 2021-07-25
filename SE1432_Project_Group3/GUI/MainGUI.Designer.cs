@@ -29,7 +29,7 @@ namespace PRN292_Project
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.storeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,29 +40,17 @@ namespace PRN292_Project
             this.deliveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // panel1
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.storeToolStripMenuItem,
-            this.cartToolStripMenuItem,
-            this.productToolStripMenuItem,
-            this.productTypeToolStripMenuItem,
-            this.staffsToolStripMenuItem,
-            this.reportToolStripMenuItem,
-            this.importToolStripMenuItem,
-            this.deliveryToolStripMenuItem,
-            this.loginToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(784, 48);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 48);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(784, 513);
+            this.panel1.TabIndex = 1;
             // 
             // storeToolStripMenuItem
             // 
@@ -144,12 +132,26 @@ namespace PRN292_Project
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // panel1
+            // menuStrip1
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 51);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 511);
-            this.panel1.TabIndex = 1;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.storeToolStripMenuItem,
+            this.cartToolStripMenuItem,
+            this.productToolStripMenuItem,
+            this.productTypeToolStripMenuItem,
+            this.staffsToolStripMenuItem,
+            this.reportToolStripMenuItem,
+            this.importToolStripMenuItem,
+            this.deliveryToolStripMenuItem,
+            this.loginToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStrip1.Size = new System.Drawing.Size(784, 48);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // MainGUI
             // 
@@ -171,18 +173,17 @@ namespace PRN292_Project
 		}
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem storeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productTypeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem staffsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deliveryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem storeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cartToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }

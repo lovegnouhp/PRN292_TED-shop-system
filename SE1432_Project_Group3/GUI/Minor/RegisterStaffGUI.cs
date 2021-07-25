@@ -23,7 +23,7 @@ namespace PRN292_Project
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-			Account account = new Account();
+			Staff staff = new Staff();
 
 			//check username can not empty, duplicate
 			if (string.IsNullOrEmpty(txtUsername.Text.Trim()))
@@ -33,18 +33,19 @@ namespace PRN292_Project
 			}
 			else
 			{
-				if (AccountDAO.checkUsernameExist(txtUsername.Text.Trim()))
+				if (AccountDAO.getAllAccounts().Where(
+					a => a.Username == txtUsername.Text.Trim()).FirstOrDefault() != null)
 				{
 					MessageBox.Show("Username existed! Please try another!");
 					return;
 				}
 				else
 				{
-					account.Username = txtUsername.Text;
+					staff.Username = txtUsername.Text;
 				}
 			}
 
-			account.Role = cmbRole.SelectedItem.ToString();
+			staff.Role = cmbRole.SelectedItem.ToString();
 
 			if (string.IsNullOrEmpty(txtPassword.Text))
 			{
@@ -53,10 +54,8 @@ namespace PRN292_Project
 			}
 			else
 			{
-				account.Password = txtPassword.Text;
+				staff.Password = txtPassword.Text;
 			}
-
-			Staff staff = new Staff();
 
 			if (string.IsNullOrEmpty(txtName.Text))
 			{
@@ -79,7 +78,6 @@ namespace PRN292_Project
 			}
 
 			//phone
-			//phone
 			if (string.IsNullOrEmpty(txtPhone.Text))
 			{
 				MessageBox.Show("Phone can not be empty!");
@@ -92,7 +90,7 @@ namespace PRN292_Project
 
 			if (string.IsNullOrEmpty(txtAccount.Text))
 			{
-				MessageBox.Show("Account can not be empty!");
+				MessageBox.Show("Bank account can not be empty!");
 				return;
 			}
 			else
@@ -100,14 +98,10 @@ namespace PRN292_Project
 				staff.BankAccount = txtAccount.Text;
 			}
 
-			String cid = Guid.NewGuid().ToString();
-
-			staff.StaffID = cid;
-			account.AccountID = cid;
+			staff.StaffID = Guid.NewGuid().ToString();
 			StaffDAO.insertStaff(staff);
-			AccountDAO.insert(account);
 
-			string message = "Register successfully!";
+			string message = "Register staff successfully!";
 			string title = "Notification";
 			MessageBoxButtons buttons = MessageBoxButtons.OK;
 			DialogResult result = MessageBox.Show(message, title, buttons);
