@@ -24,7 +24,10 @@ namespace PRN292_Project.DAL
                         Name = row["Name"].ToString(),
                         Address = row["Address"].ToString(),
                         Phone = row["Phone"].ToString(),
-                        BankAccount = row["BankAccount"].ToString()
+                        BankAccount = row["BankAccount"].ToString(),
+                        Username = row["Username"].ToString(),
+                        Password = row["Password"].ToString(),
+                        Role = row["Role"].ToString()
                     };
                     Staffs.Add(Staff);
                 }
@@ -40,18 +43,10 @@ namespace PRN292_Project.DAL
 
         public static DataTable getDataTable()
         {
-            string sql = "SELECT [StaffID],[Name],[Address],[Phone],[BankAccount] FROM [Staff]";
+            string sql = "SELECT [StaffID],[Name],[Address],[Phone],[BankAccount],a.[Username],[Password],[Role]" +
+                "FROM [Staff] s INNER JOIN [Account] a ON a.[Username] = s.[Username]";
             return DAO.GetDataTable(sql);
         }
-
-        /*public static DataTable getStaffByTypeID(int typeID)
-        {
-            SqlCommand cmd = new SqlCommand("SELECT [StaffID],[TypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity] " +
-                "FROM [Staff] " +
-                "WHERE [TypeID] = @TypeID");
-            cmd.Parameters.AddWithValue("@TypeID", typeID);
-            return DAO.GetDataTable(cmd);
-        }*/
 
         public static bool insertStaff(Staff s)
         {

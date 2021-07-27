@@ -1,4 +1,5 @@
 ﻿using PRN292_Project.DAL;
+using PRN292_Project.DTL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,36 +15,53 @@ namespace PRN292_Project.GUI
     {
         public ManageOrderGUI()
         {
+            Variables.Username = "staff1";
             InitializeComponent();
             initDataGridView();
+        }
+
+        private void loadDataGridView()
+        {
+            DataTable dt = DAO.GetDataTable("SELECT [OrderID],[CustomerID],[Order_date],[Total_amount],[StaffID],[Deliver_date], " +
+            "(CASE WHEN Deliver_date IS NULL THEN 'Processing' ELSE 'Shipped' END) AS Status " +
+            "FROM [Orders]");
+            dataGridViewOrder.DataSource = dt;
         }
         public void initDataGridView()
         {
             DataTable dt = DAO.GetDataTable("SELECT [OrderID],[CustomerID],[Order_date],[Total_amount],[StaffID],[Deliver_date], " +
-                "(case when Deliver_date IS null then 'Processing' else 'Shipped' end) as Status " +
-                "FROM [Orders]");
+            "(CASE WHEN Deliver_date IS NULL THEN 'Processing' ELSE 'Shipped' END) AS Status " +
+            "FROM [Orders]");
             dataGridViewOrder.DataSource = dt;
             dataGridViewOrder.Columns["OrderID"].Visible = false;
             dataGridViewOrder.Columns["CustomerID"].Visible = false;
             dataGridViewOrder.Columns["StaffID"].Visible = false;
 
-            DataGridViewButtonColumn btnDetail = new DataGridViewButtonColumn
-            {
-                Name = "Deliver",
-                Text = "Deliver",
-                UseColumnTextForButtonValue = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-            };
+            /* DataGridViewButtonColumn btnDetail = new DataGridViewButtonColumn
+             {
+                 Name = "Deliver",
+                 Text = "Deliver",
+                 UseColumnTextForButtonValue = true,
+                 AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+             };*/
+           
             int count = dataGridViewOrder.ColumnCount;
-            dataGridViewOrder.Columns.Insert(count, btnDetail);
+            //dataGridViewOrder.Columns.Insert(count, deliver);
+            dataGridViewOrder.Columns.Add("Deliver", "Deliver");
 
-            foreach (DataRow row in dt.Rows)
+            for (int i = 0; i< dt.Rows.Count; i++)
             {
-                if (row["Status"].ToString().Equals("Shipped"))
+                DataRow row = dt.Rows[i];
+                if (row["Status"].ToString().Equals("Processing"))
                 {
-                    int index = dt.Rows.IndexOf(row);
-                    var buttonCell = (DataGridViewButtonCell)dataGridViewOrder.Rows[index].Cells[count];
-                    buttonCell.ReadOnly = true;
+                    DataGridViewButtonCell btn = new DataGridViewButtonCell
+                    {
+                        /*Name = "Deliver",
+                        Text = "Deliver",*/
+                        /*AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells*/
+                    };
+                    dataGridViewOrder.Rows[i].Cells["Deliver"] = new DataGridViewButtonCell();
+                    dataGridViewOrder.Rows[i].Cells["Deliver"].Value = "SHIP NOW!!";
                 }
             }
         }
@@ -54,6 +72,17 @@ namespace PRN292_Project.GUI
 
             if (dataGridViewOrder.Columns[e.ColumnIndex].Name == "Deliver")
             {
+                if (dataGridViewOrder.Rows[e.RowIndex].Cells["Status"].Value.ToString() == "Processing")
+                {
+                    String orderID = dataGridViewOrder.Rows[e.RowIndex].Cells["OrderID"].Value.ToString();
+                    Order order = OrderDAO.getAllOrders().Where(o => o.OrderID == orderID).FirstOrDefault();
+                    DateTime today = DateTime.Now;
+                    string staffID = StaffDAO.getAllStaffs().Where(s => s.Username == Variables.Username).FirstOrDefault().StaffID;
+                    order.DeliverDate = today;
+                    order.StaffID = staffID;
+                    OrderDAO.Update(order);
+                    loadDataGridView();
+                }
             }
         }
     }

@@ -47,7 +47,7 @@
     <Compile Include="DAL\CustomerDAO.cs" />
     <Compile Include="DAL\ImportDAO.cs" />
     <Compile Include="DAL\OrderDAO.cs" />
-    <Compile Include="DTL\Account.cs" />
+    <Compile Include="Entity\Account.cs" />
     <Compile Include="GUI\AboutGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,9 +73,9 @@
     <Compile Include="DAL\ShoppingCartDAO.cs" />
     <Compile Include="DAL\StaffDAO.cs" />
     <Compile Include="DAL\TypeDAO.cs" />
-    <Compile Include="DTL\Cart.cs" />
-    <Compile Include="DTL\ImportDetail.cs" />
-    <Compile Include="DTL\OrderDetail.cs" />
+    <Compile Include="Entity\Cart.cs" />
+    <Compile Include="Entity\ImportDetail.cs" />
+    <Compile Include="Entity\OrderDetail.cs" />
     <Compile Include="GUI\DeliveryGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,13 +94,13 @@
     <Compile Include="GUI\MainGUI.Designer.cs">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="DTL\Variables.cs" />
-    <Compile Include="DTL\Customer.cs" />
-    <Compile Include="DTL\Import.cs" />
-    <Compile Include="DTL\Order.cs" />
-    <Compile Include="DTL\Product.cs" />
-    <Compile Include="DTL\ProductType.cs" />
-    <Compile Include="DTL\Staff.cs" />
+    <Compile Include="Entity\Variables.cs" />
+    <Compile Include="Entity\Customer.cs" />
+    <Compile Include="Entity\Import.cs" />
+    <Compile Include="Entity\Order.cs" />
+    <Compile Include="Entity\Product.cs" />
+    <Compile Include="Entity\ProductType.cs" />
+    <Compile Include="Entity\Staff.cs" />
     <Compile Include="GUI\LoginGUI.cs">
       <SubType>Form</SubType>
     </Compile>

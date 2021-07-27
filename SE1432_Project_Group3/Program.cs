@@ -17,7 +17,8 @@ namespace PRN292_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainGUI());
-            //Application.Run(new RegisterTypeGUI());
+            //Application.Run(new ImportGUI());
+            //Application.Run(new ManageOrderGUI());
         }
     }
 }

@@ -13,7 +13,6 @@ namespace PRN292_Project.DAL
         public static IEnumerable<Customer> getAllCustomers()
         {
             var customers = new List<Customer>();
-
             try
             {
                 DataTable dt = getDataTable();
@@ -26,7 +25,8 @@ namespace PRN292_Project.DAL
                         Address = row["Address"].ToString(),
                         Phone = row["Phone"].ToString(),
                         Username = row["Username"].ToString(),
-                        Password = row["Password"].ToString()
+                        Password = row["Password"].ToString(),
+                        Role = row["Role"].ToString()
                     };
                     customers.Add(customer);
                 }
@@ -35,14 +35,12 @@ namespace PRN292_Project.DAL
             {
                 throw new Exception(ex.Message);
             }
-
             return customers.AsEnumerable();
-
         }
         public static DataTable getDataTable()
         {
-            string sql = "SELECT [CustomerID],[Name],[Address],[Phone], a.[Username],a.[Password] " +
-                "FROM[Customer] c INNER JOIN[Account] a ON c.[CustomerID] = a.[AccountID]";
+            string sql = "SELECT [CustomerID],[Name],[Address],[Phone],a.[Username],[Password],[Role]" +
+                "FROM [Customer] c INNER JOIN [Account] a ON c.[Username] = a.[Username]";
             return DAO.GetDataTable(sql);
         }
 
@@ -81,35 +79,5 @@ namespace PRN292_Project.DAL
                     return DAO.UpdateTable(cmd);
 
                 }*/
-
-        public static Customer getCustomerByID(string id)
-        {
-            Customer Customer = null;
-            try
-            {
-                SqlCommand cmd = new SqlCommand("SELECT [CustomerID],[TypeID],[Produce_country],[Name],[Description],[User_guide],[Price],[Sell_price],[Quantity] " +
-                "FROM [Customer] " +
-                "WHERE [CustomerID] = @CustomerID");
-                cmd.Parameters.AddWithValue("@CustomerID", id);
-                DataTable dt = DAO.GetDataTable(cmd);
-                if (dt.Rows.Count > 0)
-                {
-                    DataRow row = dt.Rows[0];
-                    Customer = new Customer
-                    {
-                        CustomerID = row["CustomerID"].ToString(),
-                        Name = row["Name"].ToString(),
-                        Address = row["Address"].ToString(),
-                        Phone = row["Phone"].ToString()
-                    };
-
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return Customer;
-        }
     }
 }
